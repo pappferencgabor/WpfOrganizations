@@ -1,0 +1,131 @@
+﻿<Window x:Class="WpfOrganizations.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfOrganizations"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid x:Name="dgAdatok"
+                  Grid.ColumnSpan="4" SelectionChanged="dgAdatok_SelectionChanged" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Név"
+                                    Width="120"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Ország"
+                                    Width="120"
+                                    Binding="{Binding Country}"/>
+                <DataGridTextColumn Header="Alapítás éve"
+                                    Width="120"
+                                    Binding="{Binding Founded}"/>
+                <DataGridTextColumn Header="Iparterület"
+                                    Width="120"
+                                    Binding="{Binding Industry}"/>
+                <DataGridTextColumn Header="Dolgozók száma"
+                                    Width="120"
+                                    Binding="{Binding EmployeesNumber}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Szűrés ország szerint"
+               Grid.Row="1"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="26"/>
+        <ComboBox x:Name="cbOrszag"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  Height="50"
+                  Width="250"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  FontSize="16"
+                  SelectionChanged="cbOrszag_SelectionChanged"/>
+
+        <Label Content="Szűrés év szerint"
+               Grid.Row="1"
+               Grid.Column="2"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontSize="26"/>
+        <ComboBox x:Name="cbEv"
+                  Grid.Row="1"
+                  Grid.Column="3"
+                  Height="50"
+                  Width="250"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  FontSize="16"
+                  SelectionChanged="cbEv_SelectionChanged"/>
+
+        <Label Content="Azonosító"
+               FontSize="22"
+               Grid.Row="2"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+        <Label x:Name="lblAzonosito"
+               Content=""
+               FontSize="16"
+               Grid.Column="1"
+               Grid.Row="2"
+               VerticalAlignment="Center"/>
+
+
+        <Label Content="Webcím"
+               FontSize="22"
+               Grid.Row="3"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+        <Label x:Name="lblWebcim"
+               Content=""
+               FontSize="16"
+               Grid.Column="1"
+               Grid.Row="3"
+               VerticalAlignment="Center"/>
+
+
+        <Label Content="Leírás"
+               FontSize="22"
+               Grid.Row="4"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+        <Label x:Name="lblLeiras"
+               Content=""
+               FontSize="16"
+               Grid.Column="1"
+               Grid.Row="4"
+               VerticalAlignment="Center"/>
+
+        <Label Content="Alkalmazottak száma"
+               FontSize="22"
+               Grid.Column="2"
+               Grid.Row="2"
+               Grid.RowSpan="3"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+
+        <Label x:Name="lblAlkalmazottak"
+               Content=""
+               Grid.Column="3"
+               Grid.Row="2"
+               Grid.RowSpan="3"
+               FontSize="22"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+    </Grid>
+</Window>
